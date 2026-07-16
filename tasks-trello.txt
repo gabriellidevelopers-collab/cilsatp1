@@ -1,0 +1,88 @@
+# Tareas para Backend de Escuela de Fútbol
+
+---
+## 0. Dependencias y Comandos de Instalación
+```bash
+# Instalar todas las dependencias
+npm install
+
+# Dependencias principales
+npm install express cors dotenv pg sequelize
+
+# Dependencias para Swagger
+npm install swagger-jsdoc swagger-ui-express
+
+# Dependencia de desarrollo
+npm install --save-dev nodemon
+```
+
+| Paquete               | Descripción                                  |
+|-----------------------|----------------------------------------------|
+| `express`             | Framework para API REST                      |
+| `cors`                | Permitir solicitudes externas                |
+| `dotenv`              | Cargar variables de entorno                  |
+| `pg`                  | Driver de PostgreSQL                         |
+| `sequelize`           | ORM para bases de datos                      |
+| `swagger-jsdoc`       | Generar documentación Swagger                |
+| `swagger-ui-express`  | UI de Swagger                                |
+| `nodemon`             | Reinicio automático del servidor             |
+
+---
+## 1. Configuración Inicial
+- [x] Instalar Node.js y npm
+- [x] Inicializar proyecto con npm init
+- [x] Instalar dependencias básicas: Express, cors, dotenv
+- [x] Instalar dependencias de PostgreSQL: pg, sequelize
+- [x] Instalar dependencias de Swagger: swagger-jsdoc, swagger-ui-express
+- [x] Instalar dependencia de desarrollo: nodemon
+- [x] Configurar variables de entorno (.env y .env.example)
+
+---
+## 2. Base de Datos y Sequelize
+- [x] Instalar PostgreSQL y pgAdmin
+- [x] Instalar dependencias: pg, sequelize
+- [x] Configurar conexión a PostgreSQL en config/database.js
+- [x] Crear lógica para crear la base de datos si no existe
+- [x] Crear modelos de Sequelize: Tutor, Entrenador, Categoría, Jugador, Asistencia, Cuota
+- [x] Definir relaciones entre modelos
+
+---
+## 3. Rutas y Controladores
+- [x] Crear rutas para Tutores (CRUD)
+- [x] Crear controlador para Tutores
+- [x] Crear rutas para Entrenadores (CRUD)
+- [x] Crear controlador para Entrenadores
+- [x] Crear rutas para Categorías (CRUD)
+- [x] Crear controlador para Categorías
+- [x] Crear rutas para Jugadores (CRUD)
+- [x] Crear controlador para Jugadores
+- [x] Crear rutas para Asistencias (CRUD)
+- [x] Crear controlador para Asistencias
+- [x] Crear rutas para Cuotas (CRUD + pagar)
+- [x] Crear controlador para Cuotas
+
+---
+## 4. Documentación y Pruebas
+- [x] Instalar Swagger: swagger-jsdoc, swagger-ui-express
+- [x] Configurar Swagger en config/swagger.js
+- [x] Agregar documentación JSDoc a todas las rutas
+- [x] Agregar ruta /api-docs en app.js
+- [x] Crear colección de Postman para probar rutas
+- [x] Probar todas las rutas (GET, POST, PUT, DELETE, PATCH)
+
+---
+## 5. Seguridad y Middlewares
+- [x] Instalar bcrypt para encriptación de contraseñas
+- [x] Crear servicio de encriptación: services/encryption.service.js
+- [x] Crear middleware de manejo de errores centralizado: middleware/errorHandler.middleware.js
+- [x] Integrar middleware de manejo de errores en app.js
+
+---
+## 6. Mejoras y Mantenimiento
+- [x] Escribir README.md con instrucciones
+- [x] Crear documentación detallada en docs/
+- [x] Mejorar .gitignore
+- [x] Eliminar archivos innecesarios (database.sql, dbService.js)
+- [ ] Implementar validaciones adicionales en controladores
+- [ ] Implementar autenticación con JWT
+- [ ] Agregar tests unitarios y de integración

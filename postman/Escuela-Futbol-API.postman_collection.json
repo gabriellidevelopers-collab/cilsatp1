@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "Escuela de Fútbol API",
+    "description": "Colección de Postman para probar la API de la Escuela de Fútbol Infantil",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Tutores",
+      "item": [
+        {
+          "name": "Obtener todos los tutores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/api/tutores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "tutores"]
+            }
+          }
+        },
+        {
+          "name": "Crear tutor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez\",\n  \"DNI\": \"12345678\",\n  \"telefono\": \"123456789\",\n  \"correo\": \"juan.perez@example.com\",\n  \"parentesco\": \"Padre\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3001/api/tutores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "tutores"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Entrenadores",
+      "item": [
+        {
+          "name": "Obtener todos los entrenadores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/api/entrenadores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "entrenadores"]
+            }
+          }
+        },
+        {
+          "name": "Crear entrenador",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Carlos\",\n  \"apellido\": \"Gómez\",\n  \"DNI\": \"87654321\",\n  \"telefono\": \"987654321\",\n  \"correo\": \"carlos.gomez@example.com\",\n  \"especialidad\": \"Categorías formativas\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3001/api/entrenadores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "entrenadores"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categorías",
+      "item": [
+        {
+          "name": "Obtener todas las categorías",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/api/categorias",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "categorias"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Jugadores",
+      "item": [
+        {
+          "name": "Obtener todos los jugadores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/api/jugadores",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "jugadores"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Asistencias",
+      "item": [
+        {
+          "name": "Obtener todas las asistencias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/api/asistencias",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "asistencias"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cuotas",
+      "item": [
+        {
+          "name": "Obtener todas las cuotas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/api/cuotas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3001",
+              "path": ["api", "cuotas"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

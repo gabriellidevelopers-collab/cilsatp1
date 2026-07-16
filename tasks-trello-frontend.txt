@@ -1,0 +1,115 @@
+# Tareas para Frontend de Escuela de Fútbol
+
+---
+## 0. Configuración Inicial
+- [ ] Elegir framework (React, Vue, Angular, etc.) y herramientas
+- [ ] Inicializar proyecto (ej: create-react-app, vite, etc.)
+- [ ] Instalar dependencias básicas:
+  - [ ] Router (react-router-dom, vue-router, etc.)
+  - [ ] Librería de estilos (Tailwind, Bootstrap, Material UI, etc.)
+  - [ ] Cliente HTTP (axios, fetch)
+  - [ ] Validación de formularios (formik, react-hook-form, vee-validate, etc.)
+  - [ ] Manejo de estado (Redux, Context API, Pinia, etc.)
+- [ ] Configurar variables de entorno (URL del backend)
+- [ ] Configurar ESLint y Prettier (opcional, pero recomendado)
+- [ ] Crear estructura inicial de carpetas
+
+
+---
+## 1. Componentes Compartidos
+- [ ] Crear componente Navbar/Header
+- [ ] Crear componente Footer
+- [ ] Crear componente Loading (spinner)
+- [ ] Crear componente Alert/Toast para notificaciones
+- [ ] Crear componente Modal (para confirmaciones, formularios, etc.)
+- [ ] Crear componente Card genérico
+- [ ] Crear componente Table genérico (para listados)
+- [ ] Crear componente Button con variantes (primary, secondary, danger, etc.)
+
+
+---
+## 2. Páginas y Funcionalidades Principales
+
+### 🔹 Tutores
+- [ ] Crear página Listado de Tutores (getAll)
+- [ ] Crear componente Formulario de Tutor (create/update)
+- [ ] Crear página Detalle de Tutor (getById + jugadores asociados)
+- [ ] Implementar CRUD completo para Tutores
+- [ ] Agregar validaciones en el formulario de Tutor
+
+### 🔹 Entrenadores
+- [ ] Crear página Listado de Entrenadores (getAll)
+- [ ] Crear componente Formulario de Entrenador (create/update)
+- [ ] Crear página Detalle de Entrenador (getById + categorías asociadas)
+- [ ] Implementar CRUD completo para Entrenadores
+- [ ] Agregar validaciones en el formulario de Entrenador
+
+### 🔹 Categorías
+- [ ] Crear página Listado de Categorías (getAll)
+- [ ] Crear componente Formulario de Categoría (create/update)
+- [ ] Crear página Detalle de Categoría (getById + entrenador + jugadores)
+- [ ] Implementar CRUD completo para Categorías
+- [ ] Agregar validaciones en el formulario de Categoría
+
+### 🔹 Jugadores
+- [ ] Crear página Listado de Jugadores (getAll)
+- [ ] Crear componente Formulario de Jugador (create/update)
+- [ ] Crear página Detalle de Jugador (getById + tutor + categoría + asistencias + cuotas)
+- [ ] Implementar CRUD completo para Jugadores
+- [ ] Agregar validaciones en el formulario de Jugador
+
+### 🔹 Asistencias
+- [ ] Crear página Listado de Asistencias (getAll)
+- [ ] Crear página Asistencias por Jugador (getByJugador)
+- [ ] Crear página Asistencias por Fecha (getByFecha)
+- [ ] Crear componente Formulario de Asistencia (create/update)
+- [ - Agregar validaciones en el formulario de Asistencia
+
+### 🔹 Cuotas
+- [ ] Crear página Listado de Cuotas (getAll)
+- [ ] Crear página Cuotas Pendientes (getPendientes)
+- [ ] Crear página Cuotas por Jugador (getByJugador)
+- [ ] Crear componente Formulario de Cuota (create/update)
+- [ ] Crear funcionalidad para marcar cuota como pagada
+- [ ] Agregar validaciones en el formulario de Cuota
+
+
+---
+## 3. Integración con el Backend
+- [ ] Configurar cliente HTTP (axios) con la URL del backend
+- [ ] Crear servicios/API para cada recurso:
+  - [ ] tutor.service.js
+  - [ ] entrenador.service.js
+  - [ ] categoria.service.js
+  - [ ] jugador.service.js
+  - [ ] asistencia.service.js
+  - [ ] cuota.service.js
+- [ ] Implementar manejo de errores en las solicitudes HTTP
+- [ ] Agregar interceptores (si es necesario)
+
+
+---
+## 4. Estilos y Diseño
+- [ ] Configurar sistema de colores y tipografía
+- [ ] Diseñar y aplicar estilos a componentes compartidos
+- [ ] Diseñar y aplicar estilos a cada página
+- [ ] Hacer la app responsive (adaptable a móviles y tablets)
+- [ ] Revisar y mejorar la accesibilidad
+
+
+---
+## 5. Pruebas y Optimización
+- [ ] Escribir tests unitarios para componentes (Jest, Vitest)
+- [ ] Escribir tests de integración (si es necesario)
+- [ ] Probar todas las funcionalidades manualmente
+- [ ] Optimizar imágenes y recursos
+- [ ] Revisar rendimiento de la app
+
+
+---
+## 6. Documentación y Deployment
+- [ ] Escribir README del frontend
+- [ ] Documentar componentes compartidos
+- [ ] Configurar build para producción
+- [ ] Hacer deploy de la app (Vercel, Netlify, GitHub Pages, etc.)
+- [ ] Probar la app en producción
