@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <defs>
+    <linearGradient id="shield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B1B46"/>
+      <stop offset="100%" style="stop-color:#132A63"/>
+    </linearGradient>
+  </defs>
+  <!-- Escudo -->
+  <path d="M50 5 L90 20 L90 60 Q90 95 50 115 Q10 95 10 60 L10 20 Z" fill="url(#shield)" stroke="#D6BE66" stroke-width="3"/>
+  <!-- Borde interior -->
+  <path d="M50 12 L83 25 L83 58 Q83 88 50 106 Q17 88 17 58 L17 25 Z" fill="none" stroke="rgba(214,190,102,0.3)" stroke-width="1.5"/>
+  <!-- Pelota -->
+  <circle cx="50" cy="52" r="18" fill="#FAF9F6" stroke="#0B1B46" stroke-width="1.5"/>
+  <path d="M50 34 L42 44 L34 52 L42 60 L50 70 L58 60 L66 52 L58 44 Z" fill="none" stroke="#0B1B46" stroke-width="1.2"/>
+  <circle cx="50" cy="52" r="6" fill="#0B1B46"/>
+  <!-- Texto EFC -->
+  <text x="50" y="95" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="12" fill="#D6BE66" font-weight="900" letter-spacing="1">EFC</text>
+</svg>

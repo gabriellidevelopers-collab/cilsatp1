@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Inscribite | Escuelita FC</title>
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">⚽ Escuelita FC</a>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="categorias.html">Categorías</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="inscribite.html">Inscribite</a>
+  </div>
+  <a href="inscribite.html" class="nav-cta">Inscribite</a>
+</nav>
+
+<section class="page-hero">
+  <div class="jersey-num">10</div>
+  <div class="page-hero-content">
+    <img src="img/icono-inscripcion.svg" alt="" class="page-icon"/>
+    <div class="eyebrow">¡Sumate!</div>
+    <h1>Inscribí a tu<br/><span>futuro crack</span></h1>
+    <p>Completá los datos del jugador y del tutor responsable. Te contactamos para confirmar la categoría y coordinar la semana de prueba gratuita.</p>
+  </div>
+</section>
+
+<section class="inscr-section" style="padding-top:8rem">
+  <div class="inscr-inner">
+
+    <div class="inscr-side">
+      <h2>Así es el <span>proceso</span></h2>
+      <p>Nuestro sistema registra cada inscripción siguiendo el mismo modelo de datos que utiliza la escuela para gestionar jugadores, tutores y categorías, garantizando que la información quede correctamente organizada desde el primer día.</p>
+      <div class="inscr-steps">
+        <div class="inscr-step">
+          <div class="step-num">1</div>
+          <div><strong>Completá el formulario</strong><span>Datos del jugador/a y del tutor responsable</span></div>
+        </div>
+        <div class="inscr-step">
+          <div class="step-num">2</div>
+          <div><strong>Te contactamos</strong><span>Confirmamos categoría según la edad y disponibilidad</span></div>
+        </div>
+        <div class="inscr-step">
+          <div class="step-num">3</div>
+          <div><strong>Semana de prueba</strong><span>Tu hijo/a entrena gratis antes de confirmar</span></div>
+        </div>
+        <div class="inscr-step">
+          <div class="step-num">4</div>
+          <div><strong>¡Bienvenido al equipo!</strong><span>Alta definitiva y entrega del fixture de entrenamientos</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-box">
+
+      <div id="form-fields-wrapper">
+        <form id="inscripcion-form">
+
+          <!-- Datos del jugador -->
+          <div class="form-section-title">Datos del jugador/a</div>
+
+          <div class="form-row-2">
+            <div>
+              <label class="form-label">Nombre *</label>
+              <input class="form-input" type="text" name="jugador_nombre" required/>
+            </div>
+            <div>
+              <label class="form-label">Apellido *</label>
+              <input class="form-input" type="text" name="jugador_apellido" required/>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div>
+              <label class="form-label">Fecha de nacimiento *</label>
+              <input class="form-input" type="date" id="fecha-nacimiento" name="jugador_fecha" required/>
+            </div>
+            <div>
+              <label class="form-label">DNI *</label>
+              <input class="form-input" type="text" name="jugador_dni" placeholder="00.000.000" required/>
+            </div>
+          </div>
+
+          <!-- Datos del tutor -->
+          <div class="form-section-title">Datos del tutor/a responsable</div>
+
+          <div class="form-row-2">
+            <div>
+              <label class="form-label">Nombre *</label>
+              <input class="form-input" type="text" name="tutor_nombre" required/>
+            </div>
+            <div>
+              <label class="form-label">Apellido *</label>
+              <input class="form-input" type="text" name="tutor_apellido" required/>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div>
+              <label class="form-label">DNI *</label>
+              <input class="form-input" type="text" name="tutor_dni" placeholder="00.000.000" required/>
+            </div>
+            <div>
+              <label class="form-label">Parentesco</label>
+              <select class="form-input form-select" name="tutor_parentesco">
+                <option value="">— Seleccioná —</option>
+                <option>Madre</option>
+                <option>Padre</option>
+                <option>Tutor/a legal</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div>
+              <label class="form-label">Teléfono *</label>
+              <input class="form-input" type="tel" name="tutor_telefono" placeholder="3464 000000" required/>
+            </div>
+            <div>
+              <label class="form-label">Correo electrónico *</label>
+              <input class="form-input" type="email" name="tutor_email" placeholder="correo@mail.com" required/>
+            </div>
+          </div>
+
+          <!-- Categoría -->
+          <div class="form-section-title">Categoría e información adicional</div>
+
+          <div class="form-row">
+            <label class="form-label">Categoría de interés</label>
+            <select class="form-input form-select" id="categoria-interes">
+              <option value="">— Se sugiere según la fecha de nacimiento —</option>
+            </select>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" id="terminos" required/>
+            <label for="terminos">Acepto recibir información sobre la escuela y confirmo que los datos ingresados son correctos. *</label>
+          </div>
+
+          <button type="submit" class="form-submit">Enviar inscripción</button>
+        </form>
+      </div>
+
+      <div id="form-success" class="form-success">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <h3>¡Inscripción enviada!</h3>
+        <p>Gracias por sumarte a Escuelita FC. Nos pondremos en contacto con vos en las próximas 24 a 48 horas para confirmar la categoría y coordinar la semana de prueba. ⚽</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">⚽ Escuelita FC</div>
+        <p>Formación deportiva y humana para los futbolistas del mañana, en San Nicolás de los Arroyos.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="categorias.html">Categorías</a>
+      </div>
+      <div class="footer-col">
+        <h5>Escuela</h5>
+        <a href="contacto.html">Contacto</a>
+        <a href="inscribite.html">Inscribite</a>
+      </div>
+      <div class="footer-col">
+        <h5>Seguinos</h5>
+        <div class="footer-social">
+          <a class="social-circle" href="#" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0022 12z"/></svg></a>
+          <a class="social-circle" href="#" aria-label="Instagram"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a class="social-circle" href="#" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7a3 3 0 00-2.1-2.1C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.5.4a3 3 0 00-2.1 2.1C2 8.8 2 12 2 12s0 3.2.4 4.7a3 3 0 002.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4a3 3 0 002.1-2.1C22 15.2 22 12 22 12z"/><path fill="#0B1B46" d="M10 15.5l5-3.5-5-3.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Escuelita FC · San Nicolás de los Arroyos · Todos los derechos reservados</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script.js"></script>
+</body>
+</html>

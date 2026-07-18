@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
@@ -30,12 +31,12 @@ app.use('/api/jugadores', jugadorRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
 app.use('/api/cuotas', cuotaRoutes);
 
-app.get('/', (req, res) => {
-    res.json({ success: true, message: 'API Escuela de Fútbol Infantil - OK' });
-});
+// Servir archivos estáticos del frontend (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res) => {
-    res.status(404).json({ success: false, message: 'Ruta no encontrada' });
+// Fallback: servir index.html para rutas del frontend
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Middleware de manejo de errores centralizado
@@ -53,7 +54,7 @@ async function startServer() {
 
     const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
-      console.log(`Servidor Express corriendo en el puerto ${PORT}`);
+      console.log(`Servidor Express corriendo en el puerto http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error('No se pudo iniciar el servidor:', error.message);

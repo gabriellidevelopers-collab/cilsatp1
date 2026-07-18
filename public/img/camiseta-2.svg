@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360">
+  <defs>
+    <linearGradient id="j2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF9F6"/>
+      <stop offset="100%" style="stop-color:#E7E5DD"/>
+    </linearGradient>
+  </defs>
+  <!-- Cuerpo -->
+  <path d="M75 80 L50 95 L20 130 L55 145 L75 115 L225 115 L245 145 L280 130 L250 95 L225 80 L195 60 C180 50 120 50 105 60 Z" fill="url(#j2)" stroke="#0B1B46" stroke-width="2"/>
+  <path d="M75 80 L50 95 L20 130 L55 145 L75 115" fill="url(#j2)" stroke="#0B1B46" stroke-width="2"/>
+  <path d="M225 80 L250 95 L280 130 L245 145 L225 115" fill="url(#j2)" stroke="#0B1B46" stroke-width="2"/>
+  <!-- Franja azul -->
+  <rect x="100" y="130" width="100" height="8" rx="2" fill="#0B1B46"/>
+  <!-- Número -->
+  <text x="150" y="235" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="90" fill="#0B1B46" font-weight="900" opacity="0.9">10</text>
+  <!-- Borde inferior -->
+  <rect x="75" y="300" width="150" height="6" rx="3" fill="#0B1B46"/>
+</svg>

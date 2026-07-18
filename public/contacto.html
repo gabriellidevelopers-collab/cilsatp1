@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contacto | Escuelita FC</title>
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">⚽ Escuelita FC</a>
+  <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="categorias.html">Categorías</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="inscribite.html">Inscribite</a>
+  </div>
+  <a href="inscribite.html" class="nav-cta">Inscribite</a>
+</nav>
+
+<section class="page-hero">
+  <div class="jersey-num">10</div>
+  <div class="page-hero-content">
+    <img src="img/icono-contacto.svg" alt="" class="page-icon"/>
+    <div class="eyebrow">Hablemos</div>
+    <h1>Contacta<span>nos</span></h1>
+    <p>¿Tenés dudas sobre la escuela, las categorías o el proceso de inscripción? Escribinos.</p>
+  </div>
+</section>
+
+<section class="contact-section" style="margin-top:-4rem;padding-top:9rem">
+  <div class="contact-inner">
+    <div class="contact-grid">
+
+      <!-- Formulario -->
+      <div class="contact-panel">
+        <div class="contact-title">Contactanos</div>
+        <form id="contact-form" style="margin-top:1.8rem">
+          <div class="contact-form-row">
+            <div>
+              <label class="c-label">Nombre</label>
+              <input class="c-input" type="text" required/>
+            </div>
+            <div>
+              <label class="c-label">Apellido</label>
+              <input class="c-input" type="text" required/>
+            </div>
+          </div>
+          <div class="contact-form-row">
+            <div>
+              <label class="c-label">Email</label>
+              <input class="c-input" type="email" required/>
+            </div>
+            <div>
+              <label class="c-label">Teléfono</label>
+              <input class="c-input" type="tel"/>
+            </div>
+          </div>
+          <div class="contact-form-row">
+            <div>
+              <label class="c-label">Nombre del futbolista/a</label>
+              <input class="c-input" type="text"/>
+            </div>
+            <div>
+              <label class="c-label">Fecha de nacimiento</label>
+              <input class="c-input" type="date"/>
+            </div>
+          </div>
+          <div class="contact-form-row single">
+            <div>
+              <label class="c-label">Mensaje</label>
+              <textarea class="c-textarea" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="c-submit">Enviar</button>
+        </form>
+      </div>
+
+      <!-- Info lateral -->
+      <div class="contact-side">
+        <div class="contact-side-block">
+          <h4>Teléfono</h4>
+          <p>11 2394 7419</p>
+        </div>
+        <div class="contact-side-block">
+          <h4>Email</h4>
+          <a href="mailto:info@escuelitafc.com.ar">info@escuelitafc.com.ar</a>
+        </div>
+        <div class="contact-side-block">
+          <h4>Ubicación</h4>
+          <p>Av. del Fútbol 1234<br/>San Nicolás de los Arroyos, Buenos Aires</p>
+          <div class="map-box">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+        </div>
+        <div class="contact-side-block">
+          <h4>Seguinos</h4>
+          <div class="social-row">
+            <a class="social-circle" href="#" aria-label="Facebook">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0022 12z"/></svg>
+            </a>
+            <a class="social-circle" href="#" aria-label="Instagram">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a class="social-circle" href="#" aria-label="TikTok">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 2h-3v13.2a2.8 2.8 0 11-2-2.69V9.4a6 6 0 104.3 5.75c0-.1 0-.21 0-.31V8.3a7.6 7.6 0 004.7 1.6V6.7A4.6 4.6 0 0116.5 2z"/></svg>
+            </a>
+            <a class="social-circle" href="#" aria-label="YouTube">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7a3 3 0 00-2.1-2.1C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.5.4a3 3 0 00-2.1 2.1C2 8.8 2 12 2 12s0 3.2.4 4.7a3 3 0 002.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4a3 3 0 002.1-2.1C22 15.2 22 12 22 12z"/><path fill="#0B1B46" d="M10 15.5l5-3.5-5-3.5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <a href="inscribite.html" class="btn-primary" style="margin-top:.5rem">Trabaja con nosotrxs</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">⚽ Escuelita FC</div>
+        <p>Formación deportiva y humana para los futbolistas del mañana, en San Nicolás de los Arroyos.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="categorias.html">Categorías</a>
+      </div>
+      <div class="footer-col">
+        <h5>Escuela</h5>
+        <a href="contacto.html">Contacto</a>
+        <a href="inscribite.html">Inscribite</a>
+      </div>
+      <div class="footer-col">
+        <h5>Seguinos</h5>
+        <div class="footer-social">
+          <a class="social-circle" href="#" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0022 12z"/></svg></a>
+          <a class="social-circle" href="#" aria-label="Instagram"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a class="social-circle" href="#" aria-label="YouTube"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12s0-3.2-.4-4.7a3 3 0 00-2.1-2.1C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.5.4a3 3 0 00-2.1 2.1C2 8.8 2 12 2 12s0 3.2.4 4.7a3 3 0 002.1 2.1c1.6.4 7.5.4 7.5.4s5.9 0 7.5-.4a3 3 0 002.1-2.1C22 15.2 22 12 22 12z"/><path fill="#0B1B46" d="M10 15.5l5-3.5-5-3.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Escuelita FC · San Nicolás de los Arroyos · Todos los derechos reservados</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script.js"></script>
+</body>
+</html>
