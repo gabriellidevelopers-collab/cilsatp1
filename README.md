@@ -1,6 +1,6 @@
 # API Escuela de Fútbol Infantil
 
-API REST para la gestión de una escuela de fútbol infantil, construida con Node.js, Express y Sequelize (ORM para PostgreSQL).
+API REST para la gestión de una escuela de fútbol infantil, construida con Node.js, Express y Sequelize (ORM para PostgreSQL). Incluye un frontend estático servido directamente desde Express.
 
 
 ## 🚀 Instalación y Configuración
@@ -83,6 +83,35 @@ npm run dev
 npm start
 ```
 
+El servidor arranca en `http://localhost:3001` y sirve tanto la API como el frontend.
+
+
+## 🌐 Frontend
+
+El frontend es un sitio estático (HTML, CSS, JS puro) servido desde la carpeta `public/` por Express. No necesita build ni dependencias adicionales.
+
+### Páginas disponibles
+| Página          | Archivo                | Descripción                              |
+|-----------------|------------------------|------------------------------------------|
+| Inicio          | `index.html`           | Hero, estadísticas, misión/visión/valores, camiseta |
+| Nosotros        | `nosotros.html`        | Historia de la escuela y equipo técnico  |
+| Categorías      | `categorias.html`      | Cards de Sub-8, Sub-10, Sub-12           |
+| Contacto        | `contacto.html`        | Formulario de contacto + información     |
+| Inscripción     | `inscribite.html`      | Formulario conectado a la API (crea tutor + jugador) |
+
+### Cómo acceder
+Abrí el navegador en:
+```
+http://localhost:3001
+```
+
+### Conexión con la API
+El formulario de inscripción (`inscribite.html`) se conecta directamente a la API:
+1. Crea un tutor → `POST /api/tutores`
+2. Crea un jugador vinculado → `POST /api/jugadores`
+3. Carga categorías desde → `GET /api/categorias`
+4. Sugiere categoría automáticamente según la fecha de nacimiento
+
 
 ## 📊 Base de Datos
 - **Motor**: PostgreSQL
@@ -104,6 +133,7 @@ El backend sigue una arquitectura **MVC (Model-View-Controller)** simplificada p
 - **Controladores (Controllers)**: Contienen la lógica de negocio y manejan las solicitudes/respuestas.
 - **Rutas (Routes)**: Definen los endpoints API y conectan las URLs con los controladores.
 - **Config**: Almacena la configuración de la base de datos y herramientas como Swagger.
+- **Public**: Frontend estático servido por Express.
 
 
 ## 📁 Estructura del Proyecto
@@ -132,6 +162,14 @@ backend/
 │   └── Cuota.js
 ├── postman/             # Colecciones de Postman para pruebas
 │   └── Escuela-Futbol-API.postman_collection.json
+├── public/              # Frontend estático (HTML, CSS, JS)
+│   ├── index.html       # Página de inicio
+│   ├── nosotros.html    # Página nosotros
+│   ├── categorias.html  # Página categorías
+│   ├── contacto.html    # Página contacto
+│   ├── inscribite.html  # Formulario de inscripción (conectado a la API)
+│   ├── styles.css       # Estilos del sitio
+│   └── script.js        # JavaScript (manejo de formularios + API)
 ├── routes/              # Rutas API (MVC: Routes)
 │   ├── tutorRoutes.js
 │   ├── entrenadorRoutes.js
@@ -154,12 +192,12 @@ backend/
 ## 🛠️ Rutas API
 | Recurso       | Métodos CRUD                          |
 |---------------|---------------------------------------|
-| Tutores       | GET /api/tutores, POST /api/tutores, etc. |
-| Entrenadores  | GET /api/entrenadores, POST /api/entrenadores, etc. |
-| Categorías    | GET /api/categorias, POST /api/categorias, etc. |
-| Jugadores     | GET /api/jugadores, POST /api/jugadores, etc. |
-| Asistencias   | GET /api/asistencias, POST /api/asistencias, etc. |
-| Cuotas        | GET /api/cuotas, POST /api/cuotas, etc. |
+| Tutores       | GET /api/tutores, POST /api/tutores, PUT /api/tutores/:id, DELETE /api/tutores/:id |
+| Entrenadores  | GET /api/entrenadores, POST /api/entrenadores, PUT /api/entrenadores/:id, DELETE /api/entrenadores/:id |
+| Categorías    | GET /api/categorias, POST /api/categorias, PUT /api/categorias/:id, DELETE /api/categorias/:id |
+| Jugadores     | GET /api/jugadores, POST /api/jugadores, PUT /api/jugadores/:id, DELETE /api/jugadores/:id |
+| Asistencias   | GET /api/asistencias, POST /api/asistencias, PUT /api/asistencias/:id, DELETE /api/asistencias/:id |
+| Cuotas        | GET /api/cuotas, POST /api/cuotas, PUT /api/cuotas/:id, PATCH /api/cuotas/:id/pagar, DELETE /api/cuotas/:id |
 
 Para ver todas las rutas y probarlas, usa la documentación Swagger o la colección de Postman en la carpeta `postman/`.
 
@@ -170,4 +208,4 @@ Importa la colección de Postman desde la carpeta `postman/` para probar todas l
 
 ## 📄 Licencia
 Este proyecto está licenciado bajo la Licencia ISC.
-"# backCilsa" 
+"# cilsatp1" 
