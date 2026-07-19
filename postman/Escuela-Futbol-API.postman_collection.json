@@ -1,9 +1,15 @@
 {
   "info": {
     "name": "Escuela de Fútbol API",
-    "description": "Colección de Postman para probar la API de la Escuela de Fútbol Infantil",
+    "description": "Colección de Postman para probar la API de la Escuela de Fútbol Infantil - Deploy en Render",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cilsatpbackend.onrender.com"
+    }
+  ],
   "item": [
     {
       "name": "Tutores",
@@ -14,11 +20,21 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3001/api/tutores",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/tutores",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "tutores"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tutor por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tutores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tutores", "1"]
             }
           }
         },
@@ -37,11 +53,54 @@
               "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez\",\n  \"DNI\": \"12345678\",\n  \"telefono\": \"123456789\",\n  \"correo\": \"juan.perez@example.com\",\n  \"parentesco\": \"Padre\"\n}"
             },
             "url": {
-              "raw": "http://localhost:3001/api/tutores",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/tutores",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "tutores"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar tutor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez\",\n  \"DNI\": \"12345678\",\n  \"telefono\": \"111111111\",\n  \"correo\": \"juan.nuevo@example.com\",\n  \"parentesco\": \"Padre\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/tutores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tutores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar tutor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tutores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tutores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener jugadores del tutor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/tutores/1/jugadores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "tutores", "1", "jugadores"]
             }
           }
         }
@@ -56,11 +115,21 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3001/api/entrenadores",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/entrenadores",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "entrenadores"]
+            }
+          }
+        },
+        {
+          "name": "Obtener entrenador por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/entrenadores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "entrenadores", "1"]
             }
           }
         },
@@ -79,11 +148,54 @@
               "raw": "{\n  \"nombre\": \"Carlos\",\n  \"apellido\": \"Gómez\",\n  \"DNI\": \"87654321\",\n  \"telefono\": \"987654321\",\n  \"correo\": \"carlos.gomez@example.com\",\n  \"especialidad\": \"Categorías formativas\"\n}"
             },
             "url": {
-              "raw": "http://localhost:3001/api/entrenadores",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/entrenadores",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "entrenadores"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar entrenador",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Carlos\",\n  \"apellido\": \"Gómez\",\n  \"DNI\": \"87654321\",\n  \"telefono\": \"222222222\",\n  \"correo\": \"carlos.nuevo@example.com\",\n  \"especialidad\": \"Arqueros\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/entrenadores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "entrenadores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar entrenador",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/entrenadores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "entrenadores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener categorías del entrenador",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/entrenadores/1/categorias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "entrenadores", "1", "categorias"]
             }
           }
         }
@@ -98,11 +210,87 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3001/api/categorias",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/categorias",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "categorias"]
+            }
+          }
+        },
+        {
+          "name": "Obtener categoría por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categorias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categorias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear categoría",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Sub-14\",\n  \"anio_nacimiento\": 2010,\n  \"id_entrenador\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categorias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categorias"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar categoría",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Sub-14\",\n  \"anio_nacimiento\": 2010,\n  \"id_entrenador\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categorias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categorias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar categoría",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categorias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categorias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener jugadores de la categoría",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categorias/1/jugadores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categorias", "1", "jugadores"]
             }
           }
         }
@@ -117,11 +305,75 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3001/api/jugadores",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/jugadores",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "jugadores"]
+            }
+          }
+        },
+        {
+          "name": "Obtener jugador por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/jugadores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "jugadores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear jugador",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mateo\",\n  \"apellido\": \"García\",\n  \"fecha_nacimiento\": \"2015-03-15\",\n  \"DNI\": \"55667788\",\n  \"id_tutor\": 1,\n  \"id_categoria\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/jugadores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "jugadores"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar jugador",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mateo\",\n  \"apellido\": \"García\",\n  \"fecha_nacimiento\": \"2015-03-15\",\n  \"DNI\": \"55667788\",\n  \"id_tutor\": 1,\n  \"id_categoria\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/jugadores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "jugadores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar jugador",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/jugadores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "jugadores", "1"]
             }
           }
         }
@@ -136,11 +388,99 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3001/api/asistencias",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/asistencias",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "asistencias"]
+            }
+          }
+        },
+        {
+          "name": "Obtener asistencia por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/asistencias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "asistencias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear asistencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_jugador\": 1,\n  \"fecha\": \"2025-07-19\",\n  \"presente\": true,\n  \"observaciones\": \"Asistió puntual\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/asistencias",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "asistencias"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar asistencia",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_jugador\": 1,\n  \"fecha\": \"2025-07-19\",\n  \"presente\": false,\n  \"observaciones\": \"Justificado\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/asistencias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "asistencias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar asistencia",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/asistencias/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "asistencias", "1"]
+            }
+          }
+        },
+        {
+          "name": "Asistencias por jugador",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/asistencias/jugador/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "asistencias", "jugador", "1"]
+            }
+          }
+        },
+        {
+          "name": "Asistencias por fecha",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/asistencias/fecha/2025-07-19",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "asistencias", "fecha", "2025-07-19"]
             }
           }
         }
@@ -155,11 +495,120 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3001/api/cuotas",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "3001",
+              "raw": "{{baseUrl}}/api/cuotas",
+              "host": ["{{baseUrl}}"],
               "path": ["api", "cuotas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener cuota por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear cuota",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_jugador\": 1,\n  \"mes\": \"Julio 2025\",\n  \"monto\": 15000,\n  \"fecha_vencimiento\": \"2025-07-31\",\n  \"estado\": \"pendiente\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar cuota",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_jugador\": 1,\n  \"mes\": \"Julio 2025\",\n  \"monto\": 15000,\n  \"fecha_vencimiento\": \"2025-07-31\",\n  \"estado\": \"pagado\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Pagar cuota",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha_pago\": \"2025-07-19\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas/1/pagar",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas", "1", "pagar"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar cuota",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Cuotas pendientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas/pendientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas", "pendientes"]
+            }
+          }
+        },
+        {
+          "name": "Cuotas por jugador",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cuotas/jugador/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cuotas", "jugador", "1"]
             }
           }
         }
