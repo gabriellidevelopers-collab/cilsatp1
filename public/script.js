@@ -293,18 +293,18 @@ async function cargarCategorias() {
     const data = await res.json();
     const cats = data.data || data;
 
-    // Limpiar opciones excepto la primera
-    while (select.options.length > 1) {
-      select.remove(1);
+    if (cats && cats.length > 0) {
+      // Solo agregar si hay datos de la API
+      cats.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat.id_categoria;
+        opt.textContent = cat.nombre;
+        select.appendChild(opt);
+      });
     }
-
-    cats.forEach(cat => {
-      const opt = document.createElement('option');
-      opt.value = cat.id_categoria;
-      opt.textContent = cat.nombre;
-      select.appendChild(opt);
-    });
+    // Si no hay datos, se quedan las opciones estáticas del HTML
   } catch (err) {
-    console.error('Error cargando categorías:', err);
+    // Si falla, se quedan las opciones estáticas del HTML
+    console.log('Usando categorías estáticas');
   }
 }
