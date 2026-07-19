@@ -35,17 +35,29 @@ app.use('/api/cuotas', cuotaRoutes);
 app.delete('/api/reset', async (req, res) => {
   try {
     const { Asistencia, Cuota, Jugador, Categoria, Entrenador, Tutor } = require('./models');
+    const { sequelize } = require('./config/database');
     
-    await Asistencia.destroy({ where: {} });
-    await Cuota.destroy({ where: {} });
-    await Jugador.destroy({ where: {} });
-    await Categoria.destroy({ where: {} });
-    await Entrenador.destroy({ where: {} });
-    await Tutor.destroy({ where: {} });
+    // Desactivar restricciones de claves foráneas temporalmente
+    await sequelize.query('SET CONSTRAINTS ALL DEFERRED');
     
-    res.json({ success: true, message: 'Todas las tablas fueron reseteadas correctamente' });
+    const asistencias = await Asistencia.destroy({ where: {}, truncate: true, restartIdentity: true });
+    const cuotas = await Cuota.destroy({ where: {}, truncate: true, restartIdentity: true });
+    const jugadores = await Jugador.destroy({ where: {}, truncate: true, restartIdentity: true });
+    const categorias = await Categoria.destroy({ where: {}, truncate: true, restartIdentity: true });
+    const entrenadores = await Entrenador.destroy({ where: {}, truncate: true, restartIdentity: true });
+    const tutores = await Tutor.destroy({ where: {}, truncate: true, restartIdentity: true });
+    
+    await sequelize.query('SET CONSTRAINTS ALL IMMEDIATE');
+    
+    res.json({ 
+      success: true, 
+      message: 'Todas las tablas fueron reseteadas',
+      eliminados: {
+        asistencias, cuotas, jugadores, categorias, entrenadores, tutores
+      }
+    });
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Error al resetear tablas: ' + error.message });
+    res.status(500).json({ success: false, message: 'Error al resetear: ' + error.message });
   }
 });
 
