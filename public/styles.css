@@ -286,9 +286,9 @@ footer{background:var(--noche);padding:3rem 2rem 2rem;border-top:3px solid var(-
 .footer-col a:hover{color:var(--dorado)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:1.5rem}
 .footer-copy{font-size:.78rem;color:rgba(255,255,255,.4)}
-.footer-social{display:flex;gap:.7rem}
-.footer-social .social-circle{width:34px;height:34px}
-.footer-social svg{width:15px;height:15px}
+.footer-social{display:flex;gap:.9rem;align-items:center;justify-content:center}
+.footer-social .social-circle{width:42px;height:42px;display:flex;align-items:center;justify-content:center}
+.footer-social .social-circle svg{width:20px;height:20px}
 
 /* ===== FADE ANIM ===== */
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
