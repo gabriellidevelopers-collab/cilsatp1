@@ -32,12 +32,11 @@ app.use('/api/asistencias', asistenciaRoutes);
 app.use('/api/cuotas', cuotaRoutes);
 
 // Ruta para resetear todas las tablas (SOLO PARA DESARROLLO)
-app.delete('/api/reset', async (req, res) => {
+async function resetTablas(req, res) {
   try {
     const { Asistencia, Cuota, Jugador, Categoria, Entrenador, Tutor } = require('./models');
     const { sequelize } = require('./config/database');
     
-    // Desactivar restricciones de claves foráneas temporalmente
     await sequelize.query('SET CONSTRAINTS ALL DEFERRED');
     
     const asistencias = await Asistencia.destroy({ where: {}, truncate: true, restartIdentity: true });
@@ -59,7 +58,10 @@ app.delete('/api/reset', async (req, res) => {
   } catch (error) {
     res.status(500).json({ success: false, message: 'Error al resetear: ' + error.message });
   }
-});
+}
+
+app.get('/api/reset', resetTablas);
+app.delete('/api/reset', resetTablas);
 
 // Servir archivos estáticos del frontend (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
