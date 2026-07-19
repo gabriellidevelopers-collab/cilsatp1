@@ -31,6 +31,24 @@ app.use('/api/jugadores', jugadorRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
 app.use('/api/cuotas', cuotaRoutes);
 
+// Ruta para resetear todas las tablas (SOLO PARA DESARROLLO)
+app.delete('/api/reset', async (req, res) => {
+  try {
+    const { Asistencia, Cuota, Jugador, Categoria, Entrenador, Tutor } = require('./models');
+    
+    await Asistencia.destroy({ where: {} });
+    await Cuota.destroy({ where: {} });
+    await Jugador.destroy({ where: {} });
+    await Categoria.destroy({ where: {} });
+    await Entrenador.destroy({ where: {} });
+    await Tutor.destroy({ where: {} });
+    
+    res.json({ success: true, message: 'Todas las tablas fueron reseteadas correctamente' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Error al resetear tablas: ' + error.message });
+  }
+});
+
 // Servir archivos estáticos del frontend (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 

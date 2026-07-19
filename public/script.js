@@ -139,21 +139,40 @@ document.addEventListener('DOMContentLoaded', () => {
     inscrForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const required = inscrForm.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(field => {
-        if (!field.value.trim()) {
-          valid = false;
+      // Validar campos obligatorios
+      const camposRequeridos = {
+        'tutor_nombre': 'Nombre del tutor',
+        'tutor_apellido': 'Apellido del tutor',
+        'tutor_dni': 'DNI del tutor',
+        'tutor_telefono': 'Teléfono del tutor',
+        'tutor_email': 'Email del tutor',
+        'jugador_nombre': 'Nombre del jugador',
+        'jugador_apellido': 'Apellido del jugador',
+        'jugador_dni': 'DNI del jugador',
+        'jugador_fecha': 'Fecha de nacimiento',
+      };
+
+      let camposFaltan = [];
+      for (const [name, label] of Object.entries(camposRequeridos)) {
+        const field = inscrForm.querySelector(`[name="${name}"]`);
+        if (field && !field.value.trim()) {
+          camposFaltan.push(label);
           field.style.borderColor = '#D64545';
-        } else {
+        } else if (field) {
           field.style.borderColor = '#1A6B4A';
         }
-      });
+      }
 
-      if (!valid) {
+      // Validar checkbox de términos
+      const terminos = inscrForm.querySelector('#terminos');
+      if (terminos && !terminos.checked) {
+        camposFaltan.push('Acepto los términos');
+      }
+
+      if (camposFaltan.length > 0) {
         swalWarning(
           'Campos incompletos',
-          'Por favor completá todos los campos obligatorios (*).'
+          'Faltan: ' + camposFaltan.join(', ')
         );
         return;
       }
