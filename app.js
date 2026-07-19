@@ -44,23 +44,27 @@ app.use(errorHandler);
 
 async function startServer() {
   try {
-    // En Render, la DB ya existe - no intentar crearla
-    if (!process.env.DATABASE_URL) {
-      await ensureDatabaseExists();
-    }
+    console.log('Iniciando servidor...');
+    console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'CONFIGURADA' : 'NO CONFIGURADA');
+    
+    await ensureDatabaseExists();
 
+    console.log('Conectando a PostgreSQL...');
     await sequelize.authenticate();
-    console.log('Conexión con PostgreSQL establecida correctamente.');
+    console.log(' Conexion con PostgreSQL OK');
 
+    console.log(' Sincronizando modelos...');
     await sequelize.sync({ alter: true });
-    console.log('Modelos de la base de datos sincronizados.');
+    console.log(' Modelos sincronizados OK');
 
     const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
       console.log(`Servidor Express corriendo en el puerto http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.error('No se pudo iniciar el servidor:', error.message);
+    console.error('ERROR CRITICO:', error.message || error);
+    console.error('Stack:', error.stack);
+    process.exit(1);
   }
 }
 
