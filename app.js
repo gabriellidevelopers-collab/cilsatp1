@@ -14,28 +14,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ruta para la documentación Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-const tutorRoutes = require('./routes/tutorRoutes');
-const entrenadorRoutes = require('./routes/entrenadorRoutes');
-const categoriaRoutes = require('./routes/categoriaRoutes');
-const jugadorRoutes = require('./routes/jugadorRoutes');
-const asistenciaRoutes = require('./routes/asistenciaRoutes');
-const cuotaRoutes = require('./routes/cuotaRoutes');
-
-app.use('/api/tutores', tutorRoutes);
-app.use('/api/entrenadores', entrenadorRoutes);
-app.use('/api/categorias', categoriaRoutes);
-app.use('/api/jugadores', jugadorRoutes);
-app.use('/api/asistencias', asistenciaRoutes);
-app.use('/api/cuotas', cuotaRoutes);
-
-// Ruta para resetear todas las tablas (SOLO PARA DESARROLLO)
-async function resetTablas(req, res) {
+// Ruta para resetear tablas - ANTES de todo
+app.all('/api/reset', async (req, res) => {
   try {
     const { Asistencia, Cuota, Jugador, Categoria, Entrenador, Tutor } = require('./models');
-    const { sequelize } = require('./config/database');
     
     await sequelize.query('SET CONSTRAINTS ALL DEFERRED');
     
@@ -51,27 +33,40 @@ async function resetTablas(req, res) {
     res.json({ 
       success: true, 
       message: 'Todas las tablas fueron reseteadas',
-      eliminados: {
-        asistencias, cuotas, jugadores, categorias, entrenadores, tutores
-      }
+      eliminados: { asistencias, cuotas, jugadores, categorias, entrenadores, tutores }
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: 'Error al resetear: ' + error.message });
+    res.status(500).json({ success: false, message: 'Error: ' + error.message });
   }
-}
+});
 
-app.get('/api/reset', resetTablas);
-app.delete('/api/reset', resetTablas);
+// Ruta para la documentación Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Servir archivos estáticos del frontend (HTML, CSS, JS)
+// Rutas API
+const tutorRoutes = require('./routes/tutorRoutes');
+const entrenadorRoutes = require('./routes/entrenadorRoutes');
+const categoriaRoutes = require('./routes/categoriaRoutes');
+const jugadorRoutes = require('./routes/jugadorRoutes');
+const asistenciaRoutes = require('./routes/asistenciaRoutes');
+const cuotaRoutes = require('./routes/cuotaRoutes');
+
+app.use('/api/tutores', tutorRoutes);
+app.use('/api/entrenadores', entrenadorRoutes);
+app.use('/api/categorias', categoriaRoutes);
+app.use('/api/jugadores', jugadorRoutes);
+app.use('/api/asistencias', asistenciaRoutes);
+app.use('/api/cuotas', cuotaRoutes);
+
+// Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Fallback: servir index.html para rutas del frontend
+// Fallback: servir index.html
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Middleware de manejo de errores centralizado
+// Middleware de errores
 app.use(errorHandler);
 
 async function startServer() {
