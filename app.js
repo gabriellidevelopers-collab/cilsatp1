@@ -7,6 +7,7 @@ const swaggerSpec = require('./config/swagger');
 
 const { sequelize, ensureDatabaseExists } = require('./config/database');
 const errorHandler = require('./middleware/errorHandler.middleware');
+const { Asistencia, Cuota, Jugador, Categoria, Entrenador, Tutor } = require('./models');
 
 const app = express();
 
@@ -17,8 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 // Ruta para resetear tablas - ANTES de todo
 app.all('/api/reset', async (req, res) => {
   try {
-    const { Asistencia, Cuota, Jugador, Categoria, Entrenador, Tutor } = require('./models');
-    
     await sequelize.query('SET CONSTRAINTS ALL DEFERRED');
     
     const asistencias = await Asistencia.destroy({ where: {}, truncate: true, restartIdentity: true });
