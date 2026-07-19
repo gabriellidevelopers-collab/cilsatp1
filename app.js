@@ -44,7 +44,10 @@ app.use(errorHandler);
 
 async function startServer() {
   try {
-    await ensureDatabaseExists();
+    // En Render, la DB ya existe - no intentar crearla
+    if (!process.env.DATABASE_URL) {
+      await ensureDatabaseExists();
+    }
 
     await sequelize.authenticate();
     console.log('Conexión con PostgreSQL establecida correctamente.');

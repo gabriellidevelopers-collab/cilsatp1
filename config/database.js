@@ -2,11 +2,25 @@ const { Client } = require('pg');
 const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config();
 
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASSWORD;
-const dbHost = process.env.DB_HOST;
-const dbPort = process.env.DB_PORT;
-const dbName = process.env.DB_NAME;
+// Soporta tanto DATABASE_URL (Render) como variables individuales (local)
+let dbUser, dbPassword, dbHost, dbPort, dbName;
+
+if (process.env.DATABASE_URL) {
+  // Render u otro servicio que provea DATABASE_URL
+  const url = new URL(process.env.DATABASE_URL);
+  dbHost = url.hostname;
+  dbPort = url.port || 5432;
+  dbName = url.pathname.replace('/', '');
+  dbUser = url.username;
+  dbPassword = url.password;
+} else {
+  // Desarrollo local con variables individuales
+  dbUser = process.env.DB_USER;
+  dbPassword = process.env.DB_PASSWORD;
+  dbHost = process.env.DB_HOST;
+  dbPort = process.env.DB_PORT;
+  dbName = process.env.DB_NAME;
+}
 
 async function ensureDatabaseExists() {
   const client = new Client({
@@ -40,6 +54,12 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   dialect: 'postgres',
   port: dbPort,
   logging: false,
+  dialectOptions: process.env.DATABASE_URL ? {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    }
+  } : {}
 });
 
 module.exports = { sequelize, ensureDatabaseExists, DataTypes };
